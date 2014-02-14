@@ -27,3 +27,9 @@ proguard/
 *.ipr
 *.iws
 .idea/
+
+# ndk obj directory
+obj/
+
+# .so files built by ndk
+*.so
