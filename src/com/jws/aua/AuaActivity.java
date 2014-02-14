@@ -13,6 +13,8 @@ public class AuaActivity extends Activity
     {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main);
+
+	Jua.init();
     }
 
     @Override

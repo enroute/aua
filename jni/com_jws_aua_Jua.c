@@ -1,4 +1,5 @@
 #include "com_jws_aua_Jua.h"
+#include "luawrap.h"
 
 #ifdef __cplusplus
 extern "C" {
@@ -10,7 +11,7 @@ extern "C" {
  */
 JNIEXPORT void JNICALL Java_com_jws_aua_Jua_init(JNIEnv *env, jclass thiz)
 {
-
+    luaw_init( );
 }
 
 /*
@@ -20,7 +21,7 @@ JNIEXPORT void JNICALL Java_com_jws_aua_Jua_init(JNIEnv *env, jclass thiz)
  */
 JNIEXPORT void JNICALL Java_com_jws_aua_Jua_free(JNIEnv *env, jclass thiz)
 {
-
+    luaw_free( );
 }
 
 /*

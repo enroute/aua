@@ -5,8 +5,6 @@ public class Jua
     // load library
     static {
 	System.loadLibrary("jua");
-
-	init();
     }
 
     // init lua
