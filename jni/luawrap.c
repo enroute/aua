@@ -116,13 +116,6 @@ void luaw_test( )
     LOGI( "Start luaw_test( )" );
     luaw_set_error( EN_LUAW_ERROR_NONE );
 
-    fputc( 'Z', stdout);
-    fputc( 'Y', stdout);
-    fputc( 'X', stdout);
-    fputc( '\n', stdout);
-
-    printf( "This is from printf( )\r\n" );
-
     luaL_openlibs ( L );
     lua_pushstring( L, "String pushed to lua from android c" );
     lua_setglobal ( L, "TEST" );
