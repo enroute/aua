@@ -134,6 +134,8 @@ for i = 1, 10 do\
 end\
 " );
 
+    luaL_dofile( L, "/sdcard/test.lua" );
+
     luaw_set_error( EN_LUAW_ERROR_OK );
 }
 
