@@ -4,3 +4,33 @@ This is Lua 5.2.3, released on 11 Nov 2013.
 For installation instructions, license details, and
 further information about Lua, see doc/readme.html.
 
+================================================================================
+PATCHES:
+
+diff src/llex.c lua-5.2.3(untouched)/src/llex.c
+203,207c203,205
+< /* Android patch */
+< #ifdef __ANDROID__
+<     #define getlocaledecpoint()	'.'
+< #elif !defined(getlocaledecpoint)
+<     #define getlocaledecpoint()	(localeconv()->decimal_point[0])
+---
+> 
+> #if !defined(getlocaledecpoint)
+> #define getlocaledecpoint()	(localeconv()->decimal_point[0])
+208a207
+> 
+diff src/luaconf.h lua-5.2.3(untouched)/src/luaconf.h
+214,222c214,215
+< #ifdef __ANDROID__
+<     extern size_t luaw_fwrite( const void *ptr, size_t size, size_t nmemb, FILE *stream );
+<     extern int luaw_fflush( FILE *stream );
+<     #define luai_writestring(s,l) luaw_fwrite((s), sizeof(char), (l), stdout)
+<     #define luai_writeline()      (luai_writestring("\n", 1), luaw_fflush(stdout))
+< #else
+<     #define luai_writestring(s,l) fwrite((s), sizeof(char), (l), stdout)
+<     #define luai_writeline()      (luai_writestring("\n", 1), fflush(stdout))
+< #endif
+---
+> #define luai_writestring(s,l)	fwrite((s), sizeof(char), (l), stdout)
+> #define luai_writeline()	(luai_writestring("\n", 1), fflush(stdout))

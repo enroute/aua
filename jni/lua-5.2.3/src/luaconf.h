@@ -211,8 +211,15 @@
 */
 #if defined(LUA_LIB) || defined(lua_c)
 #include <stdio.h>
-#define luai_writestring(s,l)	fwrite((s), sizeof(char), (l), stdout)
-#define luai_writeline()	(luai_writestring("\n", 1), fflush(stdout))
+#ifdef __ANDROID__
+    extern size_t luaw_fwrite( const void *ptr, size_t size, size_t nmemb, FILE *stream );
+    extern int luaw_fflush( FILE *stream );
+    #define luai_writestring(s,l) luaw_fwrite((s), sizeof(char), (l), stdout)
+    #define luai_writeline()      (luai_writestring("\n", 1), luaw_fflush(stdout))
+#else
+    #define luai_writestring(s,l) fwrite((s), sizeof(char), (l), stdout)
+    #define luai_writeline()      (luai_writestring("\n", 1), fflush(stdout))
+#endif
 #endif
 
 /*
