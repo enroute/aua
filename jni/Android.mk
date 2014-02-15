@@ -39,7 +39,10 @@ LUA_SRC_FILES := \
 
 LOCAL_SRC_FILES := \
 	com_jws_aua_Jua.c \
+	com_jws_aua_Angine.c \
+	angine.c \
 	luawrap.c \
+	utils.c \
 	$(LUA_SRC_FILES)
 
 LOCAL_LDLIBS := \

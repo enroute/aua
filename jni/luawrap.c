@@ -146,5 +146,5 @@ int luaw_test_exportadd( lua_State *L )
 
     lua_pushinteger( L, a + b ); /* push the return value */
 
-    return 1;                   /* number of return values: 1 return value */
+    return 1;            /* number of return values: 1 return value */
 }
