@@ -1,6 +1,4 @@
 #include "luawrap.h"
-#include "lua.h"
-#include "lauxlib.h"
 
 #include <stdlib.h>
 #include <android/log.h>
@@ -117,11 +115,11 @@ void luaw_test( )
     luaw_set_error( EN_LUAW_ERROR_NONE );
 
     luaL_openlibs ( L );
-    lua_pushstring( L, "String pushed to lua from android c" );
+    lua_pushstring( L, "String pushed to lua from android c" ); /* push to stack */
     lua_setglobal ( L, "TEST" );
     lua_getglobal ( L, "TEST" );
 
-    const char *res = lua_tostring( L, lua_gettop( L ) );
+    const char *res = lua_tostring( L, lua_gettop( L ) ); /* get top of stack */
     LOGI( "Lua TEST is:[%s]", res );
     lua_pop( L, 1 );
 
@@ -134,8 +132,19 @@ for i = 1, 10 do\
 end\
 " );
 
+    lua_register( L, "c_add", luaw_test_exportadd);
+
     luaL_dofile( L, "/sdcard/test.lua" );
 
     luaw_set_error( EN_LUAW_ERROR_OK );
 }
 
+int luaw_test_exportadd( lua_State *L )
+{
+    const int a = lua_tointeger( L, -2 ); /* first parameter */
+    const int b = lua_tointeger( L, -1 ); /* second parameter */
+
+    lua_pushinteger( L, a + b ); /* push the return value */
+
+    return 1;                   /* number of return values: 1 return value */
+}
