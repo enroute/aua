@@ -24,15 +24,15 @@ public class AuaSurfaceView extends SurfaceView implements SurfaceHolder.Callbac
 
     // Implementation of android.view.SurfaceHolder$Callback
     public void surfaceCreated(SurfaceHolder holder) {
-
+	m_engine.surfaceCreated();
     }
 
     public void surfaceChanged(SurfaceHolder holder, int format, int width, int height) {
-
+	m_engine.surfaceChanged(format, width, height);
     }
 
     public void surfaceDestroyed(SurfaceHolder holder) {
-
+	m_engine.surfaceDestroyed();
     }
 
     // constructor

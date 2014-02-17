@@ -3,13 +3,13 @@
 (jde-set-variables
  '(jde-global-classpath
    (quote
-    ("$PROJECTS_HOME/bin/classes"
+    ("bin/classes"
      "~/android-sdk/platforms/android-19/android.jar")))
 
  '(jde-sourcepath
    (quote
-    ("$PROJECTS_HOME/src/com/jws/aua"
-     "$PROJECTS_HOME/test/src/com/jws/aua")))
+    ("src/com/jws/aua"
+     "test/src/com/jws/aua")))
 
  ;; what should be put as java file header
  '(jde-gen-buffer-boilerplate

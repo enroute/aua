@@ -75,6 +75,31 @@ JNIEXPORT void JNICALL Java_com_jws_aua_Angine_render(JNIEnv *env, jclass thiz, 
     angine_render();
 }
 
+JNIEXPORT void JNICALL Java_com_jws_aua_Angine_surfaceCreated(JNIEnv *env, jclass thiz)
+{
+    /* todo */
+}
+
+/*
+ * Class:     com_jws_aua_Angine
+ * Method:    surfaceChanged
+ * Signature: (III)V
+ */
+JNIEXPORT void JNICALL Java_com_jws_aua_Angine_surfaceChanged(JNIEnv *env, jclass thiz, jint format, jint width, jint height)
+{
+    /* todo */
+}
+
+/*
+ * Class:     com_jws_aua_Angine
+ * Method:    surfaceDestroyed
+ * Signature: ()V
+ */
+JNIEXPORT void JNICALL Java_com_jws_aua_Angine_surfaceDestroyed(JNIEnv *env, jclass thiz)
+{
+    /* todo */
+}
+
 #ifdef __cplusplus
 }
 #endif

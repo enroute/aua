@@ -29,4 +29,8 @@ public class Angine {
     public static native boolean isRunning();
     public static native boolean update();
     public static native void render(Canvas c);
+
+    public static native void surfaceCreated();
+    public static native void surfaceChanged(int format, int width, int height);
+    public static native void surfaceDestroyed();
 }
